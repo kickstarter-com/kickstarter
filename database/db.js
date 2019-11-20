@@ -15,39 +15,75 @@ db.once("open", function() {
   console.log("mongoose connected successfully");
 });
 
-var itemSchema = mongoose.Schema({
-  id: { type: Number, trim: true, unique: true },
-  title: { type: String, trim: true, unique: true },
-  subtitle: { type: String, trim: true, unique: true },
+var articleSchema = mongoose.Schema({
+  projectId: { type: Number, trim: true, unique: true },
+  projectName: { type: String, trim: true, unique: true },
+  projectTeazer: { type: String, trim: true, unique: true },
   owner: { type: String, trim: true, unique: true },
-  rate: { type: Number, trim: true, unique: true },
-  img: { type: String, trim: true, unique: true }
+  rate: { type: Number, trim: true },
+  currentFund: { type: Number, trim: true },
+  goalFund: { type: String, trim: true },
+  numberOfBackers: { type: Number, trim: true },
+  daysToGO: { type: Number, trim: true },
+  BackersIds: { type: Number, trim: true, unique: true },
+  projectImg: { type: String, trim: true },
+  majorDescriptionImg: { type: String, trim: true },
+  majorDescription: { type: String, trim: true },
+  minorDescriptionImg: { type: String, trim: true },
+  minorDescription: { type: String, trim: true }
 });
 
-var Item = mongoose.model("Item", itemSchema);
+var Article = mongoose.model("Article", articleSchema);
 
-let save = () => {
-  for (var i = 0; i < 100; i++) {
-    var id = i;
-    var title = faker.lorem.sentence();
-    var subtitle = faker.lorem.sentence();
+var add = () => {
+  for (var i = 0; i < 101; i++) {
+    var projectId = i;
+    var projectName = faker.lorem.sentence();
+    var projectTeazer = faker.lorem.sentence();
     var owner = faker.name.findName();
     var rate = faker.random.number({
       min: 1,
       max: 100
     });
-    var img = faker.image.technics();
-    var topic = new Item({
-      id: id,
-      title: title,
-      subtitle: subtitle,
+    var currentFund = faker.random.number({
+      min: 100
+    });
+    var goalFund = faker.random.number({
+      min: 100
+    });
+    var numberOfBackers = faker.random.number({
+      max: 300
+    });
+    var daysToGO = faker.random.number({
+      max: 600
+    });
+    var BackersIds = faker.random.number();
+    var projectImg = faker.image.technics();
+    var majorDescriptionImg = faker.image.technics();
+    var majorDescription = faker.lorem.paragraph();
+    var minorDescriptionImg = faker.image.technics();
+    var minorDescription = faker.lorem.paragraph();
+
+    var topic = new Article({
+      projectId: projectId,
+      projectName: projectName,
+      projectTeazer: projectTeazer,
       owner: owner,
       rate: rate,
-      img: img
+      currentFund: currentFund,
+      goalFund: goalFund,
+      numberOfBackers: numberOfBackers,
+      daysToGO: daysToGO,
+      BackersIds: BackersIds,
+      projectImg: projectImg,
+      majorDescriptionImg: majorDescriptionImg,
+      majorDescription: majorDescription,
+      minorDescriptionImg: minorDescriptionImg,
+      minorDescription: minorDescription
     });
-    // topic.save();
   }
 };
-save();
-module.exports.save = save;
-module.exports.Item = Item;
+add();
+
+module.exports.Article = Article;
+module.exports.add = add;

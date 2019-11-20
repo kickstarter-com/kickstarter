@@ -1,16 +1,15 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var faker = require("faker");
-var items = require("../database-mongo").Item;
+var topics = require("../database-mongo").Item;
 
 var app = express();
 
 app.use(express.static(__dirname + "/../react-client/dist"));
 
-app.get("/items", function(req, res) {
-  items
+app.get("/articles", function(req, res) {
+  article
     .find({})
-    .then(items => res.json(items))
+    .then(articles => res.json(articles))
     .catch(err => res.status(400).json("error", err));
 });
 
