@@ -1,0 +1,124 @@
+.First-section{
+    display: flex;
+   flex-wrap: wrap;
+   padding: 0 60px;
+   margin: 0 auto;
+   max-width: 1366px;
+   border-bottom: 1px solid #e8e8e8;
+}
+.Featured-div img{
+  max-width: 100%;
+}
+.Featured-div{
+    padding-right: 4rem;
+    padding-top: 1rem;
+    border-right: 1px solid #e8e8e8;
+    margin: 27px 0;
+    width: 50%;
+}
+.slider img{
+  height: 90px;
+  max-width: 100%;
+}
+.Recommended-dev{
+    padding-left: 4rem;
+    padding-top: 1rem;
+    margin: 27px 0;
+    width: 35%;
+}
+.slider-unit{
+  display: flex !important;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.slider-unit img{
+  height: 90px;
+  
+  padding-right: 20px;
+}
+h6{
+  font-size: 13px;
+  color: #656969;
+}
+.Recommended-dev h6{
+  margin-bottom: 10px;
+}
+.carousel-dots li button {
+  font-size: 17px !important;
+  color: #003BFF !important; 
+}
+.carousel-dots li button:hover{
+  text-decoration: underline;
+}
+.carousel-dots li button:before {
+  content: '' !important;
+}
+.carousel-dots {
+  text-align: right !important;
+  margin-top: 31px !important;
+}
+.slider-unit a{
+  display: block;
+  text-decoration: none;
+  font-size: 14px;
+  color: #282828;
+}
+.first-span{
+ display: block;
+ font-size: 12px;
+ color: #037362;
+ line-height: 1.8rem !important;
+ font-weight: 700;
+ margin-top: 0.4rem;
+}
+.by-div{
+  display: inline-flex;
+}
+
+.by-div span{
+  color: #656969;
+  font-size: 12px;
+  margin-right: 4px;
+}
+.by-div a{
+  color: #656969;
+  font-size: 12px;
+  text-decoration: none;
+}
+.by-div a:hover{
+  text-decoration: underline;
+}
+
+.mark-div{
+    height: 12px;
+    background-color: #037362;
+    position: relative;
+    top: -3px;
+    width: 100%;
+}
+.topic-link{
+  text-decoration: none;
+  color: #282828;
+}
+.topic-link h3{
+  font-size: 28px;
+  font-weight: 400;
+  margin: 10px 0;
+}
+.topic-link p{
+  font-family: "Cooper Light", Georgia, Times, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 2.4rem;
+  margin-top: 0;
+}
+.slider-title{
+  margin-top: 54px;
+  margin-bottom: 0;
+  margin-left: 30px;
+  font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #656969;
+  font-weight: 700;
+}
