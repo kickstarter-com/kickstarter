@@ -1,7 +1,10 @@
 import React from 'react';
 import './Nav.css';
-
+import {Redirect} from 'react-router-dom';
 class Nav extends React.Component {
+  onSubmit = () => {   
+        return  <Redirect  to="/login/" />
+ }
     constructor(props) {
         super(props);
         this.state = { 
@@ -32,7 +35,9 @@ class Nav extends React.Component {
 
        <div className="Nav-login">
          <a href="/">Search</a>
-         <a href="/">Log in</a>
+         
+         <a href="/login" onClick={this.onSubmit}>Log in</a>
+         
        </div>
 
       </div>
