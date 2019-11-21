@@ -1,18 +1,26 @@
-var express = require("express");
-var bodyParser = require("body-parser");
-var topics = require("../database-mongo").Article;
+const express = require("express");
+const bodyParser = require("body-parser");
+const ProjectDB = require("./models/db.js");
+const path = require("path");
 
-var app = express();
+const app = express();
 
-app.use(express.static(__dirname + "/../react-client/dist"));
+app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(bodyParser.json());
 
-app.get("/articles", function(req, res) {
-  topics
-    .find({})
-    .then(articles => res.json(articles))
-    .catch(err => res.status(400).json("error", err));
+app.get("/posts", function(req, res) {
+  console.log("inside get req");
+  ProjectDB.Project.find({})
+    .then(data => {
+      console.log(data);
+      res.json(data);
+    })
+    .catch(err => console.log(err));
+
+  // res.sendFile(path.join(__dirname, "../client/build", "index.html"));
 });
 
-app.listen(3001, function() {
-  console.log("listening on port 3001!");
-});
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () =>
+  console.log(`Listening to  http://localhost:${PORT} ...`)
+);
