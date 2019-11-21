@@ -3,6 +3,8 @@
   padding: 0;
   display: flex;
   flex-direction: column;
+  font-family: "Maison Neue Book", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  cursor: pointer;
 }
 
 .App-logo {
