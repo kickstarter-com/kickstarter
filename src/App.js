@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import $ from "jquery";
 import Nav from './Nav';
 import Recommend from './Recommend';
 import OneTopic from './OneTopic';
@@ -11,7 +12,47 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-function App() {
+
+
+class App extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = { 
+      articls:[]
+     }
+}
+
+componentDidMount(){
+  this.retriveData();
+}
+
+
+updateState(data){
+  this.setState({
+    articls: data
+  })  
+}
+
+//------retrive Data---------
+retriveData(){
+  
+  var that = this;
+  //var path = window.location.href.split("=");
+  //var article_id = path[1];
+  $.ajax({
+    url: "/",
+    method: "GET",
+    success: function(data){
+      that.updateState(data)
+      console.log(data)
+    },
+    error: function(error){
+      console.log(error);
+    }
+  })
+}
+
+render() {
   return (
     <Router>
     <div className="App">
@@ -20,7 +61,7 @@ function App() {
       <Nav />
       <Recommend />
       <OneTopic />
-      <SliderPart />
+      <SliderPart articls ={this.state.articls}/>
       </Route>
       <Route exact path="/login">
         <Login />
@@ -33,5 +74,7 @@ function App() {
     </Router>
   );
 }
+}
 
 export default App;
+

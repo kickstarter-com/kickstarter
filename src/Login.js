@@ -22,7 +22,7 @@ class Login extends React.Component {
                            <input type="email" name="email" placeholder="Email"></input>
                            <input type="password" name="password" placeholder="Password"></input>
                            <p>Forgot your password?</p>
-                           <input  value="Log In" className="log-but"></input>
+                           <input  value="Log In" className="log-but" type="submit"></input>
                            <div className="radio">
                            <input type="checkbox" checked></input>
                            </div>

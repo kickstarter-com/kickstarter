@@ -19,7 +19,7 @@ class Signup extends React.Component {
                            <input type="email" name="email" placeholder="Email"></input>
                            <input type="password" name="password" placeholder="Password"></input>
                            
-                           <input  value="Sign Up" class="log-but"></input>
+                           <input  value="Sign Up" class="log-but" type="submit"></input>
                           
                         </div>
                       </div>
